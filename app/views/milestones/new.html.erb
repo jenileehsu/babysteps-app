@@ -1,0 +1,17 @@
+<h1>Add a Milestone</h1>
+
+<%= form_tag '/milestones', method: :post do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div>
+    <%= label_tag :date %>
+    <%= text_field_tag :date, nil, placeholder: "Ex: June 1, 2016" %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>
