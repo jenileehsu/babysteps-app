@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation]
       )
     if user.save
-      session[:id] = id
+      session[:user_id] = user.id
       flash[:success] = "Account successfully created!"
       redirect_to '/'
     else
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = params[:id]
+    user_id = params[:user_id]
     @user = User.find_by(id: user_id)
   end
 

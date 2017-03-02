@@ -1,0 +1,13 @@
+<h1>Add a Child</h1>
+
+<%= form_tag '/kids', method: :post do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+  </div>
+  <div>
+    <%= label_tag :birthdate %>
+    <%= text_field_tag :birthdate, nil, placeholder: "Ex: June 1, 2016" %>
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>

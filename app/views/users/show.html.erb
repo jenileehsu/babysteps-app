@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @user.username %>!</h1>
+<h1>Welcome!</h1>
 
 <h2>My Kids</h2>
 
@@ -7,4 +7,5 @@
 <h2>Other Kids I Love</h2>
 
 
-
+<%= button_to "Add Kid", '/kids/new', :id => "open-contacts-dialog-btn",
+      :class => "inbox-sf-add-btn tip", :method => :get %>
