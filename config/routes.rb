@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/kids' => 'kids#create'
   get '/kids/:id' => 'kids#show'
 
-  get '/milestone/new' => 'milestones#new'
+  get '/milestones/new' => 'milestones#new'
   post '/milestones' => 'milestones#create'
   get 'milestones/:id' => 'milestones#show'
 

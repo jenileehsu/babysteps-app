@@ -1,4 +1,8 @@
-<h2>Welcome to Baby's Timeline!</h2>
+<h2>Welcome to <%= @kid.name %>'s Timeline!</h2>
 
 <%= button_to "Add a Milestone", '/milestone/new', :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
 
+<%= timeline_container('Awesome title', Date.today, 'cd-icon-picture.svg') do %>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <%= link_to 'See item', '#', class: 'cd-read-more' %>
+<% end %>

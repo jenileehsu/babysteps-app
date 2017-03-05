@@ -9,11 +9,12 @@ class MilestonesController < ApplicationController
       date: params[:date],
       description: params[:description]
       )
-    # redirect_to '/milestones/:id'
+    redirect_to '/milestones/:id'
   end
 
   def show
-    
+    milestone_id = params[:milestone_id]
+    @milestone = Milestone.find_by(id: milestone_id)
   end
 
 end
