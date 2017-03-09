@@ -2,7 +2,12 @@
 
 <h2>My Kids</h2>
 
-<h2>Other Kids I Love</h2>
+<!-- may need an each loop if there are multiple children -->
+
+<p><a href="/kids/<%= @kid.id %>"><%= @kid.first_name %></a></p> 
+
+
+<!-- <h2>Other Kids I Love</h2> to add for other kids to follow like niece, nephew (not your own kids) -->
 
 
 <%= button_to "Add Kid", '/kids/new', :id => "open-contacts-dialog-btn",

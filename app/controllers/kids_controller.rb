@@ -15,7 +15,7 @@ class KidsController < ApplicationController
       birthdate: params[:birthdate]
       )
     flash[:success] = "Child successfully added."
-    redirect_to '/kids/:id'
+    redirect_to "/kids/#{kid.id}"
   end
 
   def show

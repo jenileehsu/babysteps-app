@@ -24,8 +24,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-    @kid = Kid.find_by(user_id: params[:user_id])
+    @current_user = current_user.id
+    @user = User.find(params[:id])
+    @kid = Kid.find_by(user_id: @current_user) #calling kids with user_id that is equal to the current user
   end
 
 end
