@@ -1,6 +1,12 @@
 <h2>Welcome to <%= @kid.first_name %>'s Timeline!</h2>
 
-<%= button_to "Add a Milestone", '/milestone/new', :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
+<%= form_tag "/kids/#{@kid.id}", method: :delete do %>
+  <input class="btn btn-default" type="submit" value="Delete Timeline">
+<% end %>
+
+<%= button_to "Add a Milestone", '/milestones/new', :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
+
+<!-- Repeat the code below for each mileston inputted -->
 
 <%= timeline_container('Awesome title', Date.today, 'cd-icon-picture.svg') do %>
   <p>Lorem ipsum dolor sit amet.</p>

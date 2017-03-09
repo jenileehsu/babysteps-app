@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+
   get '/kids/new' => 'kids#new'
   post '/kids' => 'kids#create'
   get '/kids/:id' => 'kids#show'
+  delete 'kids/:id' => 'kids#destroy'
 
   get '/milestones/new' => 'milestones#new'
   post '/milestones' => 'milestones#create'

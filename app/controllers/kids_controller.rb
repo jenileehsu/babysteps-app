@@ -22,4 +22,13 @@ class KidsController < ApplicationController
     @kid = Kid.find_by(id: params[:id])
   end
 
+  def destroy
+    @user = Kid.find_by(user_id: @current_user)
+    kid_id = params[:id]
+    kid = Kid.find_by(id: kid_id)
+    kid.destroy
+    redirect_to "/kids/new"
+    # redirect to users show page
+  end
+
 end
