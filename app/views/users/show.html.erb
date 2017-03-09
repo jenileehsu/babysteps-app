@@ -2,13 +2,26 @@
 
 <h2>My Kids</h2>
 
-<!-- may need an each loop if there are multiple children -->
+<!-- create an each loop for multiple children per user -->
+<!-- display each kid for the current user -->
 
-<p><a href="/kids/<%= @kid.id %>"><%= @kid.first_name %></a></p> 
+<p>
+<!-- show kids where user_id = current_user.id -->
 
+  <% @kids.each do |kid| %>
+    <a href="/kids/<%= kid.id %>">
+    <%= kid.first_name %></a><br>
+  <% end %>
+
+</p>
 
 <!-- <h2>Other Kids I Love</h2> to add for other kids to follow like niece, nephew (not your own kids) -->
 
 
 <%= button_to "Add Kid", '/kids/new', :id => "open-contacts-dialog-btn",
       :class => "inbox-sf-add-btn tip", :method => :get %>
+
+<%= button_to "Delete Kid", "/users/#{@user.id}", :id => "open-contacts-dialog-btn",
+      :class => "inbox-sf-add-btn tip", :method => :get %>
+
+<!-- Add a Delete Child button -->
