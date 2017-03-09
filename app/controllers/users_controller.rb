@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:success] = "Account successfully created!"
-      redirect_to '/'
+      redirect_to '/users/:id'
     else
       flash[:warning] = "Invalid email or password"
       redirect_to '/signup'
@@ -24,8 +24,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = params[:user_id]
-    @user = User.find_by(id: user_id)
+    @user = User.find_by(id: params[:id])
+    @kid = Kid.find_by(user_id: params[:user_id])
   end
 
 end

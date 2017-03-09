@@ -5,16 +5,16 @@ class MilestonesController < ApplicationController
 
   def create
     milestone = Milestone.create(
+      kid_id: current_kid.id,
       title: params[:title],
       date: params[:date],
       description: params[:description]
       )
-    redirect_to '/milestones/:id'
+    redirect_to '/kids/:id'
   end
 
   def show
-    milestone_id = params[:milestone_id]
-    @milestone = Milestone.find_by(id: milestone_id)
+    @milestone = Milestone.find_by(id: params[:id])
   end
 
 end

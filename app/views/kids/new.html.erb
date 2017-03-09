@@ -2,8 +2,16 @@
 
 <%= form_tag '/kids', method: :post do %>
   <div>
-    <%= label_tag :name %>
-    <%= text_field_tag :name %>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name %>
+  </div>
+    <div>
+    <%= label_tag :middle_name %>
+    <%= text_field_tag :middle_name %>
+  </div>
+    <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name %>
   </div>
   <div>
     <%= label_tag :birthdate %>
