@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get '/kids/:kid_id/milestones/new' => 'milestones#new'
   post '/kids/:kid_id/milestones' => 'milestones#create'
   get '/kids/:kid_id/milestones/:id' => 'milestones#show'
+  delete '/kids/:kid_id/milestones/:id' => 'milestones#destroy'
 
 end

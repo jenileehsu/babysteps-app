@@ -20,6 +20,7 @@ class KidsController < ApplicationController
 
   def show
     @kid = Kid.find_by(id: params[:id])
+    @milestone = Milestone.where(id: params[:kid_id])
   end
 
   def destroy

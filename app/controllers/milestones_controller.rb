@@ -18,7 +18,16 @@ class MilestonesController < ApplicationController
   end
 
   def show
+    @kid = Kid.find_by(id: params[:kid_id])
     @milestone = Milestone.find_by(id: params[:id])
+  end
+
+  def destroy
+    kid = Kid.find_by(id: params[:kid_id])
+    milestone_id = params[:id]
+    milestone = Milestone.find_by(id: milestone_id)
+    milestone.destroy
+    redirect_to "/kids/#{kid.id}"
   end
 
 end

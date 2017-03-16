@@ -5,3 +5,7 @@
 <p>Description: <%= @milestone.description %></p>
 
 <!-- Add Images -->
+
+<%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
+  <input class="btn btn-default" type="submit" value="Delete Milestone">
+<% end %>
