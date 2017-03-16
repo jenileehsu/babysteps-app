@@ -1,6 +1,6 @@
 <h1>Add a Milestone</h1>
 
-<%= form_tag '/milestones', method: :post do %>
+<%= form_tag "/kids/#{@kid.id}/milestones", method: :post do %>
   <div>
     <%= label_tag :title %>
     <%= text_field_tag :title %>
