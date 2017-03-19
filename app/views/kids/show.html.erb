@@ -1,6 +1,6 @@
 <h2>Welcome to <%= @kid.first_name %>'s Timeline!</h2>
 
-<a href="/users/#{current_user.id}">Back to Profile</a><br>
+<a href="/users/#{@current_user.id}">Back to Profile</a><br>
 
 <%= form_tag "/kids/#{@kid.id}", method: :delete do %>
   <input class="btn btn-default" type="submit" value="Delete Timeline">
@@ -8,18 +8,19 @@
 
 <%= button_to "Add a Milestone", "/kids/#{@kid.id}/milestones/new", :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
 
-<!-- Create a loop for the code below for each milestone inputted -->
 <!-- only show timeline if there have been milestones inputted -->
+<!-- Create a loop for the code below for each milestone inputted -->
+<% @milestones.each do |milestone| %>
 
-<%= timeline_container( @milestone.title, @milestone.date, 'cd-icon-picture.svg') do %>
-  <p><%= @milestone.description %></p>
-  <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{@milestone.id}", class: 'cd-read-more' %>
+  <%= timeline_container( milestone.title, milestone.date, 'cd-icon-picture.svg') do %>
+    <p><%= milestone.description %></p>
+    <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/milestone.id", class: 'cd-read-more' %>
+  <% end %>
+
 <% end %>
 
 <!-- DON'T EDIT THE CODE BELOW. Template from timeline gem -->
-<%= timeline_container('Awesome title', Date.today, 'cd-icon-picture.svg') do %>
-  <p>Lorem ipsum dolor sit amet.</p>
-  <%= link_to 'See item', '#', class: 'cd-read-more' %>
-<% end %>
-
-<!-- 'Awesome title' is milestone.title, Date is milestone.date, p tag is milestone.description -->
+  <%= timeline_container('Awesome title', Date.today, 'cd-icon-picture.svg') do %>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <%= link_to 'See item', '#', class: 'cd-read-more' %>
+  <% end %>

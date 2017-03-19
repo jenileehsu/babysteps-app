@@ -22,6 +22,7 @@ class KidsController < ApplicationController
     @kid = Kid.find_by(id: params[:id])
     kid_id = @kid.id
     # return all milestones for a specific kid
+    @milestones = Milestone.all.where(params[kid_id])
     @milestone = Milestone.find_by(params[kid_id])
   end
 
