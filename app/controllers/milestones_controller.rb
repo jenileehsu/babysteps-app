@@ -23,7 +23,19 @@ class MilestonesController < ApplicationController
   end
 
   def edit
-    
+    @kid = Kid.find_by(id: params[:kid_id])
+    @milestone = Milestone.find_by(id: params[:id])
+  end
+
+  def update
+    @kid = Kid.find_by(id: params[:kid_id])
+    @milestone = Milestone.find_by(id: params[:id])
+    @milestone.update(
+      title: params[:title],
+      date: params[:date],
+      description: params[:description]
+      )
+    redirect_to "/kids/#{@kid.id}/milestones/#{@milestone.id}"
   end
 
   def destroy

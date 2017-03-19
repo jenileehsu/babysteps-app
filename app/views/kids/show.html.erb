@@ -9,12 +9,12 @@
 <%= button_to "Add a Milestone", "/kids/#{@kid.id}/milestones/new", :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
 
 <!-- Create a loop for the code below for each milestone inputted -->
+<!-- only show timeline if there have been milestones inputted -->
 
 <%= timeline_container( @milestone.title, @milestone.date, 'cd-icon-picture.svg') do %>
   <p><%= @milestone.description %></p>
   <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{@milestone.id}", class: 'cd-read-more' %>
 <% end %>
-
 
 <!-- DON'T EDIT THE CODE BELOW. Template from timeline gem -->
 <%= timeline_container('Awesome title', Date.today, 'cd-icon-picture.svg') do %>

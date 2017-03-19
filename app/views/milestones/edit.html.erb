@@ -1,0 +1,22 @@
+<h1>Edit Milestone</h1>
+
+  <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :patch do %>
+
+    <div>
+      <%= label_tag :title %>
+      <%= text_field_tag :title, @milestone.title %>
+    </div>
+    
+    <div>
+      <%= label_tag :date %>
+      <%= text_field_tag :date, @milestone.date %>
+    </div>  
+    
+    <div>
+      <%= label_tag :description %>
+      <%= text_field_tag :description, @milestone.description %>
+    </div>
+    
+    <%= submit_tag "Update Milestone" %>
+
+  <% end %>
