@@ -1,6 +1,6 @@
 <h2>Welcome to <%= @kid.first_name %>'s Timeline!</h2>
 
-<a href="/users/#{@current_user.id}">Back to Profile</a><br>
+<a href="/users/<%= current_user.id %>">Back to Profile</a><br>
 
 <%= form_tag "/kids/#{@kid.id}", method: :delete do %>
   <input class="btn btn-default" type="submit" value="Delete Timeline">
@@ -10,11 +10,12 @@
 
 <!-- only show timeline if there have been milestones inputted -->
 <!-- Create a loop for the code below for each milestone inputted -->
-<% @milestones.each do |milestone| %>
+<!-- Sort milestones by date in descending order (newest on top) -->
 
+<% @milestones.each do |milestone| %>
   <%= timeline_container( milestone.title, milestone.date, 'cd-icon-picture.svg') do %>
     <p><%= milestone.description %></p>
-    <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/milestone.id", class: 'cd-read-more' %>
+    <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{@milestone.id}", class: 'cd-read-more' %>
   <% end %>
 
 <% end %>
