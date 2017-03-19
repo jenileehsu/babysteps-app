@@ -9,15 +9,14 @@
 <%= button_to "Add a Milestone", "/kids/#{@kid.id}/milestones/new", :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
 
 <!-- only show timeline if there have been milestones inputted -->
-<!-- Create a loop for the code below for each milestone inputted -->
 <!-- Sort milestones by date in descending order (newest on top) -->
 
 <% @milestones.each do |milestone| %>
+  <% id = milestone.id %>
   <%= timeline_container( milestone.title, milestone.date, 'cd-icon-picture.svg') do %>
     <p><%= milestone.description %></p>
-    <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{@milestone.id}", class: 'cd-read-more' %>
+    <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{id}", class: 'cd-read-more' %>
   <% end %>
-
 <% end %>
 
 <!-- DON'T EDIT THE CODE BELOW. Template from timeline gem -->
