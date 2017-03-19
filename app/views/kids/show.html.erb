@@ -10,9 +10,9 @@
 
 <!-- Create a loop for the code below for each milestone inputted -->
 
-<%= timeline_container( '@milestone.title', Date.today, 'cd-icon-picture.svg') do %>
-  <p>Lorem ipsum dolor sit amet.</p>
-  <%= link_to 'See item', '#', class: 'cd-read-more' %>
+<%= timeline_container( @milestone.title, @milestone.date, 'cd-icon-picture.svg') do %>
+  <p><%= @milestone.description %></p>
+  <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{@milestone.id}", class: 'cd-read-more' %>
 <% end %>
 
 

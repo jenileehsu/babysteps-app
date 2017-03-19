@@ -22,6 +22,10 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.find_by(id: params[:id])
   end
 
+  def edit
+    
+  end
+
   def destroy
     kid = Kid.find_by(id: params[:kid_id])
     milestone_id = params[:id]

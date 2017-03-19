@@ -20,7 +20,9 @@ class KidsController < ApplicationController
 
   def show
     @kid = Kid.find_by(id: params[:id])
-    @milestone = Milestone.where(id: params[:kid_id])
+    kid_id = @kid.id
+    # return all milestones for a specific kid
+    @milestone = Milestone.find_by(params[kid_id])
   end
 
   def destroy
