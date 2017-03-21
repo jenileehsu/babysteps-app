@@ -17,5 +17,10 @@
     <%= label_tag :birthdate %>
     <%= text_field_tag :birthdate, nil, placeholder: "Ex: June 1, 2016" %>
   </div>
+
+  <div>
+    <%= file_field_tag :image_file_name %>
+  </div>
+
   <%= submit_tag "Submit" %>
 <% end %>
