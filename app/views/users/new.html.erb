@@ -1,6 +1,6 @@
 <h1>Sign Up!</h1>
 
-<%= form_tag '/users', method: :post do %>
+<%= form_tag '/users', multipart: true, method: :post do %>
   <div>
     <%= label_tag :username %>
     <%= text_field_tag :username %>
@@ -16,6 +16,10 @@
   <div>
     <%= label_tag :password_confirmation %>
     <%= text_field_tag :password_confirmation %>
+  </div>
+  <div>
+    <%= label_tag :avatar %>
+    <%=file_field_tag :avatar %>
   </div>
   <%= submit_tag "Submit" %>
 <% end %>
