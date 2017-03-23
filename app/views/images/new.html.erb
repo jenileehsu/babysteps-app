@@ -1,0 +1,11 @@
+<h1>Add a Photo or Video</h1>
+
+<%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", multipart: true, method: :post do %>
+
+  <div>
+    <%=file_field_tag :image %>
+  </div>
+
+  <%= submit_tag "Submit" %>
+
+<% end %>

@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   patch 'kids/:kid_id/milestones/:id' => 'milestones#update'
   delete '/kids/:kid_id/milestones/:id' => 'milestones#destroy'
 
+  get '/kids/:kid_id/milestones/:id/images/new' => 'images#new'
+  post '/kids/:kid_id/milestones/:id' => 'images#create'
+  get '/kids/:kid_id/milestones/:id/images' => 'images#show'
+
 end

@@ -4,7 +4,13 @@
 <p>Date: <%= @milestone.date %></p>
 <p>Description: <%= @milestone.description %></p>
 
-<!-- Add Images -->
+<%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new", class: "btn btn-success" %>
+
+<!-- Show all images --> 
+
+
+<!-- Add More Images -->
+
 
 <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
   <input class="btn btn-default" type="submit" value="Delete Milestone">
@@ -14,4 +20,3 @@
 <br>
 <%= link_to "Back to Timeline", "/kids/#{@kid.id}", class: "btn btn-success" %>
 
-<!-- Show all images -->
