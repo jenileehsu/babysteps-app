@@ -1,0 +1,5 @@
+<h1>Photos for <%= @kid.first_name %>'s <%= @milestone.title %></h1>
+
+<!-- Create a loop to display all images for this milestones -->
+
+<%= image_tag @images.avatar.url(:medium) %>
