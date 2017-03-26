@@ -4,13 +4,14 @@
 <p>Date: <%= @milestone.date %></p>
 <p>Description: <%= @milestone.description %></p>
 
+<% @milestone.images.each do |image| %>
+    <%= image_tag image.avatar.url(:medium) %><br>
+    <%= form_tag "/kids/#{@kid_id}/milestones/#{@milestone_id}/images/#{image.id}", method: :delete do %>
+      <input class="btn btn-default" type="submit" value="Delete Photo">
+    <% end %>
+<% end %>
+<br>
 <%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
-
-<!-- Show all images --> 
-
-
-<!-- Add More Images -->
-
 
 <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
   <input class="btn btn-default" type="submit" value="Delete Milestone">

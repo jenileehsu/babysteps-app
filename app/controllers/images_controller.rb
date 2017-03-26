@@ -18,9 +18,21 @@ class ImagesController < ApplicationController
       avatar: params[:avatar],
       milestone_id: params[:milestone_id]
       )
-    redirect_to "/kids/#{kid.id}/milestones/#{milestone.id}/images"
+    redirect_to "/kids/#{kid.id}/milestones/#{milestone.id}"
   end
 
- 
+  def show
+    @kid = Kid.find_by(id: params[:kid_id])
+    @milestone = Milestone.find_by(id: params[:milestone_id])
+    @image = Image.find_by(id: params[:id])
+  end
+
+  def destroy
+    kid = Kid.find_by(id: params[:kid_id])
+    milestone = Milestone.find_by(id: params[:milestone_id])
+    image = Image.find_by(id: params[:id])
+    image.destroy
+    redirect_to "/kids/#{kid.id}/milestones/#{milestone.id}"
+  end
 
 end
