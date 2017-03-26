@@ -33,7 +33,7 @@
 
 
 <!-- if current user is logged in, the following should show -->
-<% if current_user == user.id %>
+<% if current_user %>
   <%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
 
   <!-- add link to share milestone update via email -->
