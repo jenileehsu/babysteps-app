@@ -12,7 +12,12 @@
 <% end %>
 <br>
 
-<%= form_tag "/kids/#{@kid.id}/milestones", method: :post do %>
+<% @milestone.comments.each do |comment| %>
+  <%= comment.name %><br>
+  <%= comment.text %><br><br>
+<% end %>
+
+<%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}/comments", method: :post do %>
   <div>
     <%= label_tag :name %>
     <%= text_field_tag :name %>
@@ -26,14 +31,22 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
-<%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
-<!-- add link to share milestone update via email -->
 
-<%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
-  <input class="btn btn-default" type="submit" value="Delete Milestone">
+<!-- if current user is logged in, the following should show -->
+<% if current_user == user.id %>
+  <%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
+
+  <!-- add link to share milestone update via email -->
+
+  <%= link_to "Edit", "/kids/#{@kid.id}/milestones/#{@milestone.id}/edit", class: "btn btn-success" %><br>
+
+  <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
+    <input class="btn btn-default" type="submit" value="Delete Milestone">
+  <% end %>
+
 <% end %>
 
-<%= link_to "Edit", "/kids/#{@kid.id}/milestones/#{@milestone.id}/edit", class: "btn btn-success" %>
 <br>
-<%= link_to "Back to Timeline", "/kids/#{@kid.id}", class: "btn btn-success" %>
+
+<%= link_to "Back to #{@kid.first_name}'s Timeline", "/kids/#{@kid.id}", class: "btn btn-success" %>
 
