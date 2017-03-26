@@ -13,6 +13,8 @@
 <br>
 <%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
 
+<!-- add link to share milestone update via email -->
+
 <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
   <input class="btn btn-default" type="submit" value="Delete Milestone">
 <% end %>

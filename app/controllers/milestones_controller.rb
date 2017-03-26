@@ -14,6 +14,7 @@ class MilestonesController < ApplicationController
       date: params[:date],
       description: params[:description]
       )
+    
     redirect_to "/kids/#{kid.id}/milestones/#{milestone.id}"
   end
 
