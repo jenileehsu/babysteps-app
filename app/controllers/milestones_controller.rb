@@ -42,7 +42,7 @@ class MilestonesController < ApplicationController
   def destroy
     kid = Kid.find_by(id: params[:kid_id])
     # milestone_id = params[:id]
-    milestone = Milestone.find_by(id: params[:milestone_id])
+    milestone = Milestone.find_by(id: params[:id])
     milestone.destroy
     redirect_to "/kids/#{kid.id}"
   end

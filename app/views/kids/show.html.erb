@@ -2,25 +2,28 @@
 
 <%= image_tag @kid.avatar.url(:medium) %>
 
-<%= form_tag "/kids/#{@kid.id}", method: :delete do %>
-  <input class="btn btn-default" type="submit" value="Delete Timeline">
+<% if current_user %>
+  <%= button_to "Add a Milestone", "/kids/#{@kid.id}/milestones/new", :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
 <% end %>
-
-<%= button_to "Add a Milestone", "/kids/#{@kid.id}/milestones/new", :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
-
 <!-- only show timeline if there have been milestones inputted -->
 <!-- Sort milestones by date in descending order (newest on top) -->
 
-<% @milestones.each do |milestone| %>
+<% @milestones.order(date: :desc).each do |milestone| %>
   <% id = milestone.id %>
   <%= timeline_container( milestone.title, milestone.date, 'cd-icon-picture.svg') do %>
-    <p><%= milestone.description %></p>
+    <p><%= milestone.description %></p>      
+      <% milestone.images.each do |image| %>
+        <%= image_tag image.avatar.url(:thumb) %>
+        </%>  
+      <% end %>
     <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{id}", class: 'cd-read-more' %>
   <% end %>
 <% end %>
 
-<!-- DON'T EDIT THE CODE BELOW. Template from timeline gem -->
-  <%= timeline_container('Awesome title', Date.today, 'cd-icon-picture.svg') do %>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <%= link_to 'See item', '#', class: 'cd-read-more' %>
+<% if current_user %>
+  <%= form_tag "/kids/#{@kid.id}", method: :delete do %>
+    <input class="btn btn-default" type="submit" value="Delete Timeline">
   <% end %>
+<% end %>
+
+

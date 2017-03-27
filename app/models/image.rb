@@ -8,6 +8,6 @@ class Image < ApplicationRecord
 
   validates_attachment :avatar, :presence => true,
                        :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] },
-                       :size => { :in => 0..1000.kilobytes }
+                       :size => { :in => 0..10000.kilobytes }
 
 end

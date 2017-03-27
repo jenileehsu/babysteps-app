@@ -5,13 +5,11 @@
 <p>Description: <%= @milestone.description %></p>
 
 <% @milestone.images.each do |image| %>
-    <%= image_tag image.avatar.url(:medium) %><br>
-    <%= form_tag "/kids/#{@kid_id}/milestones/#{@milestone_id}/images/#{image.id}", method: :delete do %>
-      <input class="btn btn-default" type="submit" value="Delete Photo">
-    <% end %>
+  <%= image_tag image.avatar.url(:medium) %><br><br>
 <% end %>
 <br>
 
+<h3>Comments</h3>
 <% @milestone.comments.each do |comment| %>
   <%= comment.name %><br>
   <%= comment.text %><br><br>
@@ -31,8 +29,6 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
-
-<!-- if current user is logged in, the following should show -->
 <% if current_user %>
   <%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
 

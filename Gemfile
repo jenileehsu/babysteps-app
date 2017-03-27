@@ -38,6 +38,10 @@ gem 'paperclip', '~> 5.1.0'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'jquery-rails'
+
+gem 'jquery-ui-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
