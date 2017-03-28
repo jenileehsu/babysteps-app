@@ -1,17 +1,17 @@
+<% if current_user %>
+  <p align="right"><%= link_to "Add New Milestone", "/kids/#{@kid.id}/milestones/new" %></p>
+<% end %>
+
 <h2><center><%= @kid.first_name %>'s Milestones</h2>
 
-<% if @kid.avatar.url %>
-  <p align="center"><%= image_tag @kid.avatar.url(:medium), :class=> "img-circular" %></p>
-<% else %>
-  <p align="center"><img src="/assets/baby_avatar.png" class="img-circular"></p>
-<% end %>
+<p align="center"><%= image_tag @kid.avatar.url(:medium), :class=> "img-circular" %></p>
 
 <!-- only show timeline if there have been milestones inputted -->
 <!-- Sort milestones by date in descending order (newest on top) -->
 
 <% @milestones.order(date: :desc).each do |milestone| %>
   <% id = milestone.id %>
-  <%= timeline_container( milestone.title, milestone.date, 'cd-icon-picture.svg') do %>
+  <%= timeline_container( milestone.title, milestone.date, '/assets/white_footprints.png') do %>
     <p><%= milestone.description %></p>      
       <% milestone.images.each do |image| %>
         <%= image_tag image.avatar.url(:thumb) %>
@@ -26,5 +26,7 @@
     <input class="btn btn-default" type="submit" value="Delete Timeline">
   <% end %>
 <% end %>
-
-
+<br>
+<br>
+<br>
+<br>

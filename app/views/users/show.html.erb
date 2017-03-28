@@ -1,18 +1,22 @@
-<h1>Welcome, <%= @user.username %>!</h1>
-  
-  <%= image_tag @user.avatar.url(:medium) %>
-
-<h2>My Kids</h2>
-
-<p>
+<h2>Welcome, <%= @user.username %>!</h2>
+<br>
+<br>
+<div class="wrapping-div" style="text-align: center;">
+  <h3>My Kids</h3>
   <% @kids.each do |kid| %>
-    <a href="/kids/<%= kid.id %>">
-    <%= kid.first_name %></a>
-    <br>
+    <div class="kid-something" style="display:inline-block;text-align: center;padding-right: 10px; padding-left: 10px;">
+        <a href="/kids/<%= kid.id %>" style="font-family:Raleway";>
+        <%= image_tag kid.avatar.url(:medium), :class=> "img-circular" %><br>
+        <p><%= kid.first_name %> <%= kid.last_name %></a>
+        <br>
+        <br>
+    </div>
   <% end %>
-</p>
+</div>
 
-<%= button_to "Add Kid", '/kids/new', :id => "open-contacts-dialog-btn",
+<%= button_to "Add a Child", '/kids/new', :id => "open-contacts-dialog-btn",
       :class => "inbox-sf-add-btn tip", :method => :get %>
+
+
 
 <!-- Add a Delete Child button -->

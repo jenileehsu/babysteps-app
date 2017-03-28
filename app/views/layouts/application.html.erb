@@ -45,29 +45,22 @@
           <li class="dropdown">
             <a href="/users/<%= current_user.id %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-family:Raleway;"><%= current_user.username %><span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="/users/<%= current_user.id %>" style="font-family:Raleway;">Back to Profile</a></li>
+              <li role="separator" class="divider"></li>
               <li>
                 <% current_user.kids.each do |kid|%>
                   <li><a href="/kids/<%= kid.id %>" style="font-family:Raleway;"><%= kid.first_name %></a></li>
                 <% end %>
+                <li role="separator" class="divider"></li>
+                <li><a href="/logout" style="font-family:Raleway;">Logout</a></li>
               </li>
             </ul>
           </li>
-          <li><a href="/logout" style="font-family:Raleway;">Logout</a></li>
         <% else %>
           <a href="/signup" style="font-family:Raleway;">Sign Up</a>
           <li><a href="/login" style="font-family:Raleway;">Login</a></li>
         <% end %>
       </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-family:Raleway;">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" style="font-family:Raleway;">Action</a></li>
-            <li><a href="#" style="font-family:Raleway;">Another action</a></li>
-            <li><a href="#" style="font-family:Raleway;">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#" style="font-family:Raleway;">Separated link</a></li>
-          </ul>
-        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
