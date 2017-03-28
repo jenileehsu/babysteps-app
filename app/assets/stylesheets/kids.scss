@@ -7,6 +7,16 @@
 Primary style
 
 -------------------------------- */
+.img-circular{
+ width: 125px;
+ height: 125px;
+ background-size: cover;
+ display: block;
+ border-radius: 65px;
+ -webkit-border-radius: 65px;
+ -moz-border-radius: 65px;
+}
+
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

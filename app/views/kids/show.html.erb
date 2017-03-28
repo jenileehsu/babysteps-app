@@ -1,10 +1,11 @@
-<h2><%= @kid.first_name %>'s Timeline</h2>
+<h2><center><%= @kid.first_name %>'s Milestones</h2>
 
-<%= image_tag @kid.avatar.url(:medium) %>
-
-<% if current_user %>
-  <%= button_to "Add a Milestone", "/kids/#{@kid.id}/milestones/new", :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :get %>
+<% if @kid.avatar.url %>
+  <p align="center"><%= image_tag @kid.avatar.url(:medium), :class=> "img-circular" %></p>
+<% else %>
+  <p align="center"><img src="/assets/baby_avatar.png" class="img-circular"></p>
 <% end %>
+
 <!-- only show timeline if there have been milestones inputted -->
 <!-- Sort milestones by date in descending order (newest on top) -->
 

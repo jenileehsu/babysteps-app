@@ -3,7 +3,7 @@ class Image < ApplicationRecord
   belongs_to :milestone
 
   has_attached_file :avatar,
-                    :styles => { :medium => "150x150>", :thumb => "44x44#" },
+                    :styles => { :medium => "150x150>", :thumb => "75x75#" },
                     :default_url => "/images/:style/missing.png"
 
   validates_attachment :avatar, :presence => true,
