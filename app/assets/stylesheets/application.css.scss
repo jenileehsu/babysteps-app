@@ -18,6 +18,8 @@
 
  */
 
+
+
 @import "bootstrap-sprockets";
 
 @import "bootswatch/flatly/variables";
@@ -29,3 +31,7 @@
 @import "bootswatch/flatly/bootswatch";
 
 /*@import "base";*/
+
+body {
+ background-color: rgba(250,250,250,1);
+}
