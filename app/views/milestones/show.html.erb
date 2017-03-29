@@ -1,11 +1,17 @@
-<h3>Milestone</h3>
+<p align="right"><%= link_to "Back to #{@kid.first_name}'s Timeline", "/kids/#{@kid.id}" %><br><br>
+<% if current_user %>
+  <%= link_to "Edit Milestone", "/kids/#{@kid.id}/milestones/#{@milestone.id}/edit" %><br>
+  <%= link_to "Add More Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
+<% end %></p>
 
-<p>Milestone: <%= @milestone.title %></p>
-<p>Date: <%= @milestone.date %></p>
-<p>Description: <%= @milestone.description %></p>
+<h1><%= @kid.first_name %></h1>
+
+<p><%= @milestone.title %></p>
+<p><%= @milestone.date.strftime("%B %d, %Y") %></p>
+<p><%= @milestone.description %></p>
 
 <% @milestone.images.each do |image| %>
-  <%= image_tag image.avatar.url(:medium) %><br><br>
+  <%= image_tag image.avatar.url %><br><br>
 <% end %>
 <br>
 
@@ -30,11 +36,8 @@
 <% end %>
 
 <% if current_user %>
-  <%= link_to "Add Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
 
-  <!-- add link to share milestone update via email -->
-
-  <%= link_to "Edit", "/kids/#{@kid.id}/milestones/#{@milestone.id}/edit", class: "btn btn-success" %><br>
+  <br>
 
   <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
     <input class="btn btn-default" type="submit" value="Delete Milestone">
@@ -44,5 +47,5 @@
 
 <br>
 
-<%= link_to "Back to #{@kid.first_name}'s Timeline", "/kids/#{@kid.id}", class: "btn btn-success" %>
+
 
