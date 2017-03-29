@@ -6,7 +6,7 @@ class Image < ApplicationRecord
                     :styles => {
                       :medium => "150x150",
                       :thumb => "75x75#",
-                      :square => "300x300>"
+                      :square => "200x200>"
                       },
                     :default_url => "/images/:style/missing.png"
 

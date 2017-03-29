@@ -1,8 +1,15 @@
-<%= image_tag @image.avatar.url %>
+<div class="single-image" style="width: 400px; height: 400px;">
+  <%= image_tag @image.avatar.url %>
+
 <br>
 <br>
+
 <% if current_user %>
   <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/#{@image.id}", method: :delete do %>
       <input class="btn btn-default" type="submit" value="Delete Photo">
   <% end %>
 <% end %>
+<br>
+<br>
+<br>
+</div>

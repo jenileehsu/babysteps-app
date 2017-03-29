@@ -1,12 +1,12 @@
-<h1>Add a Photo for <%= @kid.first_name %>'s <%= @milestone.title %></h1>
+<h3>Add a Photo for <%= @milestone.title %></h3>
 
 <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}/images", multipart: true, method: :post do %>
 
   <div>
-    <%= label_tag :avatar %>
+    <%= label_tag :add_photo %>
     <%= file_field_tag :avatar %>
   </div>
-
+<br>
   <%= submit_tag "Submit" %>
 
 <% end %>

@@ -1,7 +1,6 @@
 <p align="right"><%= link_to "Back to #{@kid.first_name}'s Timeline", "/kids/#{@kid.id}" %><br><br>
 <% if current_user %>
-  <%= link_to "Edit Milestone", "/kids/#{@kid.id}/milestones/#{@milestone.id}/edit" %><br>
-  <%= link_to "Add More Photos", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
+  <%= link_to "Edit Milestone", "/kids/#{@kid.id}/milestones/#{@milestone.id}/edit" %>
 <% end %></p>
 
 <h1><%= @kid.first_name %></h1>
@@ -9,22 +8,28 @@
 <p><%= @milestone.title %></p>
 <p><%= @milestone.date.strftime("%B %d, %Y") %></p>
 <p><%= @milestone.description %></p>
-
-
+<br>
 <% @milestone.images.each do |image| %>
-  <div class="polaroid" style="display:inline-block;text-align: center; padding-right: 10px; padding-left: 10px">
+  <div class="polaroid" style="display:inline-block; text-align: center; width: 300px; height: 300px;">
     <a href="/kids/<%= @kid.id %>/milestones/<%= @milestone.id %>/images/<%= image.id %>">
-    <%= image_tag image.avatar.url(:square) %></a> <br><br>
+    <%= image_tag image.avatar.url(:medium) %></a>
   </div>
 <% end %>
 <br>
 <br>
+<p><% if current_user %>
+  <%= link_to "Add a Photo", "/kids/#{@kid.id}/milestones/#{@milestone.id}/images/new" %>
+<% end %></p>
+<br>
+<br>
 <div>
 <h4>Comments</h4>
-<% @milestone.comments.each do |comment| %>
-  <p>From: <%= comment.name %></p>
-  <p>Message: <%= comment.text %></p><br><br>
-<% end %>
+  <% @milestone.comments.each do |comment| %>
+    <p>From: <%= comment.name %></p>
+    <p>Message: <%= comment.text %></p><br><br>
+  <% end %>
+<br>
+<br>
 </div>
 <h4>Leave a Comment</h4>
 <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}/comments", method: :post do %>

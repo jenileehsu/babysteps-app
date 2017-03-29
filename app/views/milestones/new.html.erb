@@ -1,4 +1,4 @@
-<h1>Add a Milestone</h1>
+<h1>Add a New Milestone</h1>
 
 <%= form_tag "/kids/#{@kid.id}/milestones", method: :post do %>
   <div>
@@ -7,7 +7,7 @@
   </div>
   <div>
     <%= label_tag :date %>
-    <input type="date">
+    <input type="date" <%= text_field_tag :date %>
   </div>
   <div>
     <%= label_tag :description %>
