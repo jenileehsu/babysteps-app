@@ -42,6 +42,8 @@ gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
 
+gem 'bootswatch-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
