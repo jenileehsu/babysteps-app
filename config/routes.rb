@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   get '/kids/:kid_id/milestones/:milestone_id/images' => 'images#index'
   get '/kids/:kid_id/milestones/:milestone_id/images/new' => 'images#new'
+  get '/kids/:kid_id/milestones/:milestone_id/images/:id' => 'images#show'
   post '/kids/:kid_id/milestones/:milestone_id/images' => 'images#create'
   delete '/kids/:kid_id/milestones/:milestone_id/images/:id' => 'images#destroy'
 

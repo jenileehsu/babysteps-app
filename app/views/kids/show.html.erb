@@ -1,26 +1,27 @@
 <% if current_user %>
   <p align="right"><%= link_to "Add New Milestone", "/kids/#{@kid.id}/milestones/new" %></p>
-  <p align="right"><%= link_to "Edit Child", "/kids/#{@kid.id}/edit" %></p>
+  <p align="right"><%= link_to "Edit #{@kid.first_name}'s Profile", "/kids/#{@kid.id}/edit" %></p>
 <% end %>
 
 <h2 align="center"><%= @kid.first_name %> <%= @kid.middle_name %> <%= @kid.last_name %></h2>
 <p align="center"><%= image_tag @kid.avatar.url(:medium), :class=> "img-circular" %></p>
 
-<br>
-<br>
-<div>
+
   <% @milestones.order(date: :desc).each do |milestone| %>
     <% id = milestone.id %>
     <%= timeline_container( milestone.title, milestone.date, '/assets/white_footprints.png') do %>
-      <h5><%= milestone.description %></h5>  
-      <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{id}", class: 'cd-read-more' %>    
-        <% milestone.images.each do |image| %>
-          <%= image_tag image.avatar.url(:thumb) %>
-          </%>  
-        <% end %>
+      
+      <% milestone.images.each do |image| %>
+        <div style="display:inline-block"> 
+          <%= image_tag image.avatar.url(:thumb) %><br>
+        </div> 
+      <% end %>
+      <br>
+      <br>
+      <%= link_to 'More Details', "/kids/#{@kid.id}/milestones/#{id}", class: 'cd-read-more' %>
     <% end %>
   <% end %>
-</div>
+
 <br>
 <br>
 <% if current_user %>

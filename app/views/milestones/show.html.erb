@@ -10,17 +10,23 @@
 <p><%= @milestone.date.strftime("%B %d, %Y") %></p>
 <p><%= @milestone.description %></p>
 
+
 <% @milestone.images.each do |image| %>
-  <%= image_tag image.avatar.url %><br><br>
+  <div class="polaroid" style="display:inline-block;text-align: center; padding-right: 10px; padding-left: 10px">
+    <a href="/kids/<%= @kid.id %>/milestones/<%= @milestone.id %>/images/<%= image.id %>">
+    <%= image_tag image.avatar.url(:square) %></a> <br><br>
+  </div>
 <% end %>
 <br>
-
-<h3>Comments</h3>
+<br>
+<div>
+<h4>Comments</h4>
 <% @milestone.comments.each do |comment| %>
-  <%= comment.name %><br>
-  <%= comment.text %><br><br>
+  <p>From: <%= comment.name %></p>
+  <p>Message: <%= comment.text %></p><br><br>
 <% end %>
-
+</div>
+<h4>Leave a Comment</h4>
 <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}/comments", method: :post do %>
   <div>
     <%= label_tag :name %>
@@ -35,10 +41,9 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
+<br>
+<br>
 <% if current_user %>
-
-  <br>
-
   <%= form_tag "/kids/#{@kid.id}/milestones/#{@milestone.id}", method: :delete do %>
     <input class="btn btn-default" type="submit" value="Delete Milestone">
   <% end %>

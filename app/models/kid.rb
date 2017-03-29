@@ -5,7 +5,10 @@ class Kid < ApplicationRecord
   has_many :milestones
 
   has_attached_file :avatar,
-                    :styles => { :medium => "150x150>", :thumb => "44x44#", :icon => "44x44#", },
+                    :styles => { 
+                      :medium => "150x150>", 
+                      :thumb => "44x44#" 
+                      },
                     :default_url => "/assets/baby_avatar.png"
 
   validates_attachment :avatar, :presence => true,
