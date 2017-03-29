@@ -25,6 +25,23 @@ class KidsController < ApplicationController
     # @milestone = Milestone.find_by(kid_id: @kid.id)
   end
 
+  def edit
+    @kid = Kid.find_by(id: params[:id])
+  end
+
+  def update
+    @kid = Kid.find_by(id: params[:id])
+    @kid.update(
+      first_name: params[:first_name],
+      middle_name: params[:middle_name],
+      last_name: params[:last_name],
+      birthdate: params[:birthdate],
+      avatar: params[:avatar]
+      )
+    flash[:success] = "Child successfully updated!"
+    redirect_to "/kids/#{@kid.id}"
+  end
+
   def destroy
     @user = Kid.find_by(user_id: @current_user)
     kid_id = params[:id]

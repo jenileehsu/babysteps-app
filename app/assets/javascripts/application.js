@@ -15,5 +15,3 @@
 //= require jquery_ujs
 //= require vertical-timeline
 //= require_tree .
-
-

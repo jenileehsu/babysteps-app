@@ -1,0 +1,31 @@
+<h1>Edit Child</h1>
+
+  <%= form_tag "/kids/#{@kid.id}", multipart: true, method: :patch do %>
+
+    <div>
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, @kid.first_name %>
+    </div>
+    
+    <div>
+      <%= label_tag :middle_name %>
+      <%= text_field_tag :middle_name, @kid.middle_name %>
+    </div>  
+    
+    <div>
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name, @kid.last_name %>
+    </div>
+
+    <div>
+      <%= label_tag :birthdate %>
+      <input type="date">
+    </div>
+
+    <div>
+      <%=file_field_tag :avatar %>
+    </div>
+    
+    <%= submit_tag "Update Child" %>
+
+  <% end %>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/kids/new' => 'kids#new'
   post '/kids' => 'kids#create'
   get '/kids/:id' => 'kids#show'
+  get '/kids/:id/edit' => 'kids#edit'
+  patch '/kids/:id' => 'kids#update'
   delete 'kids/:id' => 'kids#destroy'
 
   get '/kids/:kid_id/milestones/new' => 'milestones#new'
