@@ -20,17 +20,17 @@ class KidsController < ApplicationController
   end
 
   def show
-    @kid = Kid.friendly.find(params[:id])
+    @kid = Kid.find(params[:id])
     @milestones = Milestone.all.where(kid_id: @kid.id)
     # @milestone = Milestone.find_by(kid_id: @kid.id)
   end
 
   def edit
-    @kid = Kid.friendly.find(params[:id])
+    @kid = Kid.find(params[:id])
   end
 
   def update
-    @kid = Kid.friendly(params[:id])
+    @kid = Kid.find(params[:id])
     @kid.update(
       first_name: params[:first_name],
       middle_name: params[:middle_name],
@@ -45,7 +45,7 @@ class KidsController < ApplicationController
   def destroy
     @user = Kid.find_by(user_id: @current_user)
     kid_id = params[:id]
-    kid = Kid.friendly.find(id: kid_id)
+    kid = Kid.find(id: kid_id)
     kid.destroy
     redirect_to "/kids/new"
     # redirect to users show page
