@@ -1,5 +1,5 @@
 class Kid < ApplicationRecord
-
+  
   belongs_to :user
 
   has_many :milestones
@@ -15,4 +15,7 @@ class Kid < ApplicationRecord
                        :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] },
                        :size => { :in => 0..1000.kilobytes }
   
+  extend FriendlyId
+  friendly_id :first_name, use: :slugged
+
 end

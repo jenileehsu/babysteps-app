@@ -6,7 +6,7 @@
   <h3>My Kids</h3>
   <br>
   <% @kids.each do |kid| %>
-    <div class="kid-something" style="display:inline-block;text-align: center;padding-right: 10px; padding-left: 10px;">
+    <div class="kid-something" style="display:inline-block;text-align: center;padding-right: 20px; padding-left: 20px;">
         <a href="/kids/<%= kid.id %>" style="font-family:Raleway";>
         <%= image_tag kid.avatar.url(:medium), :class=> "img-circular" %><br>
         <p><%= kid.first_name %> <%= kid.last_name %></a>

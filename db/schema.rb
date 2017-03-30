@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326203856) do
+ActiveRecord::Schema.define(version: 20170330002216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20170326203856) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "slug"
+    t.index ["slug"], name: "index_kids_on_slug", unique: true, using: :btree
   end
 
   create_table "milestones", force: :cascade do |t|
