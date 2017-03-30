@@ -1,6 +1,6 @@
 <h1>Sign Up</h1>
 
-<%= form_tag "/users", multipart: true, method: :post do %>
+<%= form_tag '/signup', method: :post do %>
   <div>
     <%= label_tag :username %>
     <%= text_field_tag :username %>
@@ -12,10 +12,6 @@
   <div>
     <%= label_tag :password %>
     <%= text_field_tag :password %>
-  </div>
-  <div>
-    <%= label_tag "Re-enter Password" %>
-    <%= text_field_tag :password_confirmation %>
   </div>
   <%= submit_tag "Submit" %>
 <% end %>

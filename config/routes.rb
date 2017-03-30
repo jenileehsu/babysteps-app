@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   get '/' => 'users#index'
   get '/signup' => 'users#new'
-  post '/users' => 'users#create'
+  post '/signup' => 'users#create'
   get '/users/:id' => 'users#show'
-
+  
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
